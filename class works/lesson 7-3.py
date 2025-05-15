@@ -4,18 +4,23 @@ class CarEngine:
         self.__oil_level = 100
         self.__is_running = False
 
-    def get_oil_level(self):
+    def start_engine(self):
         if self.__oil_level > 0:
             self.__is_on = True
             print("Газуєм")
         else:
-            self.__oil_level =
-            print("Немає заряду. Зарядіть консоль")
+            self.__oil_level = 0
+            print("Немає масла. Заповніть двигун")
 
 
-    def turn_off(self):
+    def stop_engine(self):
         self.__is_on = False
-        print("Консоль вимкнена")
+        print("Двигун вимкнений")
+
+    def get_oil_level(self):
+        if self.__oil_level <= 0:
+            self.__oil_level += 100
+            self.__is_on = True
 
     def install_game(self, name):
         if name not in self.__game_library:
@@ -61,13 +66,13 @@ class CarEngine:
 
 
 
-console = GameConsole()
-console.turn_on()
-console.install_game("Fifa 25")
-console.install_game("Dota 2")
-console.install_game("Roblox")
-console.play_game("Dota 2")
+engine = CarEngine()
+engine.turn_on()
+engine.install_game("Fifa 25")
+engine.install_game("Dota 2")
+engine.install_game("Roblox")
+engine.play_game("Dota 2")
 
 
-print(console.get_battery())
-console.turn_off()
+print(engine.get_battery())
+engine.stop_engine()
