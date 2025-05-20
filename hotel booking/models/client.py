@@ -4,8 +4,8 @@ class Client:
         self._bookings = []
 
 
-    def add_booking(self, booking):
-        self._bookings.append(booking)
+    def add_booking(self, bookings):
+        self._bookings.append(bookings)
 
     def get_bookings(self):
         return self._bookings
